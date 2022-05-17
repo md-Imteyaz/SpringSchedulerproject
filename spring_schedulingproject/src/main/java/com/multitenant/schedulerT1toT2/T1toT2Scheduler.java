@@ -1,4 +1,4 @@
-package com.codingworld.multitenant.scheduler;
+package com.multitenant.schedulerT1toT2;
 
 import java.util.List;
 
@@ -7,16 +7,16 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import com.codingworld.multitenant.feign.FeignInter;
-import com.codingworld.multitenant.model.Student;
+import com.multitenant.feignService.FeignService;
+import com.multitenant.model.Student;
 
 
 @Component
-public class Scheduler {
+public class T1toT2Scheduler {
 
 	@Autowired
-	FeignInter feign;
-	@Scheduled(fixedDelay = 600000)
+	FeignService feign;
+	@Scheduled(fixedDelay = 6000)
 	public void schedulingtest() {
 		System.out.println("scheduler called"); 
 		List<Student> studentlist=feign.getAll("tenant1");
